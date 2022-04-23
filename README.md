@@ -1,4 +1,4 @@
-# Sky mavis assessment
+# API automation framework
 
 # How to set up and run test
 1. Install nodejs: https://nodejs.org/en/download/

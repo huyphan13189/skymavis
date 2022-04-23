@@ -7,7 +7,11 @@
 - npm install
 
 4. Run a test with @tag:
+With MAC, Linux:
 - TEST_ENV=test npx codeceptjs run --plugins cucumberJsonReporter --grep "@Regression"
+With CMD window:
+- set TEST_ENV=test
+- npx codeceptjs run --plugins cucumberJsonReporter --grep "@Regression"
 
 5. Open cucumber report
 - node report.js

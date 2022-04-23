@@ -2,13 +2,18 @@ exports.config = {
   output: './output',
   helpers: {
     Puppeteer: {
-      url: '',
+      // url: '',
       show: true, // false is headless
-      // windowSize: "1366x768",
+      // windowSize: '1920x1080',
       // defaultViewport: null,
       // getPageTimeout:0,
       chrome: {
-        args: ['--use-fake-device-for-media-stream', '--use-fake-ui-for-media-stream'],
+        args: ['--no-sandbox', '--window-size=1200,900', '--disable-web-security'],
+        ignoreHTTPSErrors: true,
+        defaultViewport: {
+          width:1200,
+          height:900
+        }
       },
     },
     REST: {
@@ -51,8 +56,8 @@ exports.config = {
     I: './steps_file.js',
     api: './pages/api/api.page.js',
     register: './pages/api/register.page.js',
-    web:'./pages/web/web.page.js',
-    gmail:'./pages/web/gmail.page.js',
+    web: './pages/web/web.page.js',
+    gmail: './pages/web/gmail.page.js',
   },
   mocha: {
   },

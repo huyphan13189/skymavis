@@ -1,7 +1,7 @@
 Feature: Register regression
   Verify business for Register api
 
-  @Regresion @Sanity @R01
+  @Regression @Sanity @R01
   Scenario: Register Mail success
     When I send request verify to suffix email
     And I get verify code
@@ -9,7 +9,7 @@ Feature: Register regression
     And I register suffix email
     Then I see status code 200
 
-  @Regresion @R02
+  @Regression @R02
   Scenario: Register Mail with that is not verified
     When I register fof email "huyphantest131+03@gmail.com" and password "password123"
     Then I see status code 403
@@ -18,7 +18,7 @@ Feature: Register regression
       | _error        | equal   | 403007                     | int    |
       | _errorMessage | equal   | Your email is not verified | string |
 
-  @Regresion @R03
+  @Regression @R03
   Scenario: Register Mail with that alread registered
     When I register fof email "dinhhuy131@gmail.com" and password "password123"
     Then I see status code 403
@@ -27,7 +27,7 @@ Feature: Register regression
       | _error        | equal   | 403007                               | int    |
       | _errorMessage | equal   | The email has been registered before | string |
 
-  @Regresion @R04
+  @Regression @R04
   Scenario: Register Mail with password is empty
     When I register fof email "huyphantest131@gmail.com" and password ""
     Then I see status code 400
@@ -39,7 +39,7 @@ Feature: Register regression
       | json                                                          |
       | {"_errorDetails":{"password":"password is a required field"}} |
 
-  @Regresion @R05
+  @Regression @R05
   Scenario: Register Mail with password is only number
     When I register fof email "huyphantest131@gmail.com" and password "12345678"
     Then I see status code 400
@@ -51,7 +51,7 @@ Feature: Register regression
       | json                                                                                                        |
       | {"_errorDetails":{"password":"passwords must be at least 8 characters including a number and an alphabet"}} |
 
-  @Regresion @R06
+  @Regression @R06
   Scenario: Register Mail with password is only alphabet
     When I register fof email "huyphantest131@gmail.com" and password "asdqwassds"
     Then I see status code 400
@@ -64,7 +64,7 @@ Feature: Register regression
       | {"_errorDetails":{"password":"passwords must be at least 8 characters including a number and an alphabet"}} |
 
 
-  @Regresion @R07
+  @Regression @R07
   Scenario: Register Mail with password is less than 8 characters
     When I register fof email "huyphantest131@gmail.com" and password "abcd123"
     Then I see status code 400

@@ -1,7 +1,7 @@
 Feature: Verify Email regression
     Verify business for Verify Email api
 
-    # @Regresion @Sanity @VM01
+    # @Regression @Sanity @VM01
     # Scenario: Verify Mail success
     #     When I send request verify to suffix email
     #     And I get verify code
@@ -12,7 +12,7 @@ Feature: Verify Email regression
     #         | email   | equal   |                                           | string |
     #         | message | equal   | Your email has been verified successfully | string |
 
-    @Regresion @Sanity @VM01
+    @Regression @Sanity @VM01
     Scenario: Verify Mail success
         When I verify email "huyphantest131+01@gmail.com" and code "607309"
         Then I see status code 200
@@ -21,7 +21,7 @@ Feature: Verify Email regression
             | email   | equal   |                                           | string |
             | message | equal   | Your email has been verified successfully | string |
 
-    @Regresion @VM02
+    @Regression @VM02
     Scenario: Verify Mail with wrong code
         When I verify email "huyphantest131+01@gmail.com" and code "607300"
         Then I see status code 403
@@ -30,7 +30,7 @@ Feature: Verify Email regression
             | _error        | equal   | 403008                            | int    |
             | _errorMessage | equal   | Verify email token or email wrong | string |
 
-    @Regresion @VM03
+    @Regression @VM03
     Scenario: Verify Mail with wrong email
         When I verify email "wrongemail@gmail.com" and code "607309"
         Then I see status code 403

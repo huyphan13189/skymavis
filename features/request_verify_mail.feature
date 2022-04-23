@@ -1,7 +1,7 @@
 Feature: Request Verify Mail regression
     Verify business for Request Verify Mail api
 
-    @Regresion @Sanity @RVM01
+    @Regression @Sanity @RVM01
     Scenario: Request verify mail success
         When I send request verify to email "dinhhuy111@gmail.com"
         Then I see status code 200
@@ -10,7 +10,7 @@ Feature: Request Verify Mail regression
             | email   | equal   |                                       | string |
             | message | equal   | Captcha to verify your email was sent | string |
 
-    @Regresion @RVM02
+    @Regression @RVM02
     Scenario: Request verify mail that already verified
         When I send request verify to email "huyphantest131+01@gmail.com"
         Then I see status code 400
@@ -19,7 +19,7 @@ Feature: Request Verify Mail regression
             | _error        | equal   | 400011                                | int    |
             | _errorMessage | equal   | Your email has been already verified. | string |
 
-    @Regresion @RVM03
+    @Regression @RVM03
     Scenario: Request verify mail that already registered
         When I send request verify to email "dinhhuy131@gmail.com"
         Then I see status code 409
@@ -28,7 +28,7 @@ Feature: Request Verify Mail regression
             | _error        | equal   | 409002                               | int    |
             | _errorMessage | equal   | The email has been registered before | string |
 
-    @Regresion @RVM04
+    @Regression @RVM04
     Scenario: Request verify mail with invalid email
         When I send request verify to email "huyphantest131@gmail"
         Then I see status code 400

@@ -35,6 +35,9 @@ Given('I send request verify to suffix email', async () => {
     global.requestEmail = email
 })
 
+// The better approach for get verify code:
+// 1: Expose an internal api to get code
+// 2: Connect to db to get code
 Given('I get verify code', async () => {
     let verifyCode = await gmail.getVerifyCode()
     console.log("Verify code: " + verifyCode)
